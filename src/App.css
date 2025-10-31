@@ -1,0 +1,15 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("./assets/Nunito/Nunito-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
