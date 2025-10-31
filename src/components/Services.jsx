@@ -95,7 +95,7 @@ const ServiceCard = ({ title, imageUrl, link, hasSubmenu = false }) => {
           onMouseLeave={handleMouseLeave}
         >
           <div className="w-full max-w-[420px] grid grid-cols-1 gap-3">
-            <Link to="/portfolio/photography/portrait" className="block">
+            <Link to="/portfolio/photograph/portrait" className="block">
               <div className="mini-card bg-white/95 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-lg border border-white/20 p-4 flex items-center justify-between transition-all duration-300">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
@@ -123,7 +123,7 @@ const ServiceCard = ({ title, imageUrl, link, hasSubmenu = false }) => {
               </div>
             </Link>
 
-            <Link to="/portfolio/photography/still-life" className="block">
+            <Link to="/portfolio/photograph/still-life" className="block">
               <div className="mini-card bg-white/95 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-lg border border-white/20 p-4 flex items-center justify-between transition-all duration-300">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
@@ -153,7 +153,7 @@ const ServiceCard = ({ title, imageUrl, link, hasSubmenu = false }) => {
               </div>
             </Link>
 
-            <Link to="/portfolio/photography/motocross" className="block">
+            <Link to="/portfolio/photograph/motocross" className="block">
               <div className="mini-card bg-white/95 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-lg border border-white/20 p-4 flex items-center justify-between transition-all duration-300">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
@@ -187,4 +187,33 @@ const ServiceCard = ({ title, imageUrl, link, hasSubmenu = false }) => {
   );
 };
 
-export default ServiceCard;
+const Services = () => {
+  return (
+    <section className="py-20 bg-purple-50">
+      <h2 className="text-3xl font-bold text-center mb-12 text-violet-700">
+        <span className="text-fuchsia-600">My Portfolio</span>
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-6 lg:px-20">
+        <ServiceCard
+          title="Graphic Design"
+          imageUrl="/gd.jpg"
+          link="/portfolio/graphic-design"
+        />
+        <ServiceCard
+          title="Web Design"
+          imageUrl="/wd.png"
+          link="/portfolio/web-design"
+        />
+        <ServiceCard
+          title="Photography"
+          imageUrl="/Castrogiovanni-11.jpg"
+          link="/portfolio/photography"
+          hasSubmenu
+        />
+      </div>
+    </section>
+  );
+};
+
+export default Services;

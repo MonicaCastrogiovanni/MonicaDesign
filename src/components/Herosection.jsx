@@ -29,7 +29,7 @@ const Hero = () => {
       {/* Immagine del Profilo */}
       <div className="relative z-10 w-64 h-64 lg:w-[28rem] lg:h-[28rem] mx-auto rounded-full overflow-hidden">
         <img
-          src="./public/io.png"
+          src="/io.png"
           alt="Monica, Graphic Designer and Web Developer"
           className="w-full h-full object-cover"
         />
