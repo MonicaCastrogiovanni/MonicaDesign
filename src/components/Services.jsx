@@ -110,7 +110,7 @@ const ServiceCard = ({ title, imageUrl, link, hasSubmenu = false }) => {
 
       {/* --- SOTTOMENU MOBILE (sempre visibile) --- */}
       {hasSubmenu && (
-        <div className="block lg:hidden mt-4 w-full max-w-[420px] mx-auto grid grid-cols-1 gap-3">
+        <div className=" lg:hidden mt-4 w-full max-w-[420px] mx-auto grid grid-cols-1 gap-3">
           <Link to="/portfolio/photograph/portrait" className="block">
             <MiniCard title="Portrait" image="/Castrogiovanni-11.jpg" />
           </Link>
