@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Router } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -10,10 +10,12 @@ import WebDesignPage from "./pages/WebDesignPage";
 import PortraitPage from "./pages/PortraitPage";
 import StillLifePage from "./pages/StillLifePage";
 import MotocrossPage from "./pages/MotocrossPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />}></Route>

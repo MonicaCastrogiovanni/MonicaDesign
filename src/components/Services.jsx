@@ -12,7 +12,7 @@ const ServiceCard = ({ title, imageUrl, link, hasSubmenu = false }) => {
   };
 
   const handleMouseLeave = () => {
-    timeoutId = setTimeout(() => setHovered(false), 200); // delay 200ms
+    timeoutId = setTimeout(() => setHovered(false), 200);
   };
 
   return (
@@ -82,10 +82,10 @@ const ServiceCard = ({ title, imageUrl, link, hasSubmenu = false }) => {
         </div>
       </Link>
 
-      {/* SOTTOMENU */}
+      {/* --- SOTTOMENU DESKTOP (solo hover) --- */}
       {hasSubmenu && (
         <div
-          className={`submenu-container absolute left-0 right-0 mt-4 z-50 flex justify-center transition-all duration-400 ${
+          className={`hidden lg:flex submenu-container absolute left-0 right-0 mt-4 z-50 justify-center transition-all duration-400 ${
             hovered
               ? "opacity-100 translate-y-0 pointer-events-auto"
               : "opacity-0 -translate-y-2 pointer-events-none"
@@ -96,96 +96,60 @@ const ServiceCard = ({ title, imageUrl, link, hasSubmenu = false }) => {
         >
           <div className="w-full max-w-[420px] grid grid-cols-1 gap-3">
             <Link to="/portfolio/photograph/portrait" className="block">
-              <div className="mini-card bg-white/95 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-lg border border-white/20 p-4 flex items-center justify-between transition-all duration-300">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
-                    <img
-                      src="/Castrogiovanni-11.jpg"
-                      alt="Portrait"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="text-violet-800 font-semibold">Portrait</div>
-                </div>
-                <svg
-                  className="w-5 h-5 text-violet-700"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </div>
+              <MiniCard title="Portrait" image="/Castrogiovanni-11.jpg" />
             </Link>
-
             <Link to="/portfolio/photograph/still-life" className="block">
-              <div className="mini-card bg-white/95 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-lg border border-white/20 p-4 flex items-center justify-between transition-all duration-300">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
-                    <img
-                      src="/stilllife.jpg"
-                      alt="Still Life"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="text-violet-800 font-semibold">
-                    Still Life
-                  </div>
-                </div>
-                <svg
-                  className="w-5 h-5 text-violet-700"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </div>
+              <MiniCard title="Still Life" image="/stilllife.jpg" />
             </Link>
-
             <Link to="/portfolio/photograph/motocross" className="block">
-              <div className="mini-card bg-white/95 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-lg border border-white/20 p-4 flex items-center justify-between transition-all duration-300">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
-                    <img
-                      src="/mx.jpg"
-                      alt="Motocross Riders"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="text-violet-800 font-semibold">Motocross</div>
-                </div>
-                <svg
-                  className="w-5 h-5 text-violet-700"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </div>
+              <MiniCard title="Motocross" image="/mx.jpg" />
             </Link>
           </div>
+        </div>
+      )}
+
+      {/* --- SOTTOMENU MOBILE (sempre visibile) --- */}
+      {hasSubmenu && (
+        <div className="block lg:hidden mt-4 w-full max-w-[420px] mx-auto grid grid-cols-1 gap-3">
+          <Link to="/portfolio/photograph/portrait" className="block">
+            <MiniCard title="Portrait" image="/Castrogiovanni-11.jpg" />
+          </Link>
+          <Link to="/portfolio/photograph/still-life" className="block">
+            <MiniCard title="Still Life" image="/stilllife.jpg" />
+          </Link>
+          <Link to="/portfolio/photograph/motocross" className="block">
+            <MiniCard title="Motocross" image="/mx.jpg" />
+          </Link>
         </div>
       )}
     </div>
   );
 };
+
+/* COMPONENTE MINI CARD RIUTILIZZABILE */
+const MiniCard = ({ title, image }) => (
+  <div className="mini-card bg-white/95 backdrop-blur-sm rounded-2xl shadow-md hover:shadow-lg border border-white/20 p-4 flex items-center justify-between transition-all duration-300">
+    <div className="flex items-center gap-3">
+      <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+        <img src={image} alt={title} className="w-full h-full object-cover" />
+      </div>
+      <div className="text-violet-800 font-semibold">{title}</div>
+    </div>
+    <svg
+      className="w-5 h-5 text-violet-700"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M17 8l4 4m0 0l-4 4m4-4H3"
+      />
+    </svg>
+  </div>
+);
 
 const Services = () => {
   return (

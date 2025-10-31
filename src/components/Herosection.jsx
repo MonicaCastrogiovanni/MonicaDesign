@@ -6,7 +6,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="pt-10 pb-20 text-center bg-white">
+    <section className="pt-10 pb-10 text-center bg-white">
       <p className={`${COLORS.secondary} font-semibold text-2xl mb-4`}>Hello!</p>
 
       <h1 className="text-5xl lg:text-5xl font-extrabold mb-10 px-4">
